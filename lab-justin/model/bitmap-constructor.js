@@ -6,6 +6,7 @@ function Bitmap(bitMapFile){
   this.height = bitMapFile.readUIntLE(0x16, 4);
   this.bpp = bitMapFile.readUIntLE(0x1c, 2);
   this.palleteColorCount = bitMapFile.readUIntLE(0x2e, 4);
+  this.imgData = bitMapFile.slice(0x7a);
 }
 
 exports.Bitmap = Bitmap;
