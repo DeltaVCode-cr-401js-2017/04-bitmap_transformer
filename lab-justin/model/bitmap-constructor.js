@@ -1,7 +1,3 @@
-const fs = require('fs');
-
-const bitMapFile = fs.readFileSync(`./assets/palette-bitmap.bmp`);
-
 function Bitmap(bitMapFile){
   this.type = bitMapFile.toString('utf-8', 0, 2);
   this.size = bitMapFile.readUIntLE(0x2, 4);
@@ -12,5 +8,4 @@ function Bitmap(bitMapFile){
   this.palleteColorCount = bitMapFile.readUIntLE(0x2e, 4);
 }
 
-var bitMapObject = new Bitmap(bitMapFile);
-console.log(bitMapObject);
+exports.Bitmap = Bitmap;
