@@ -1,7 +1,10 @@
 exports.invertColor = function(colorTable){
-  var invertedColorArray = colorTable.forEach(function(item,i){
-    colorTable[i] = ~item;
+  console.log(colorTable.length);
+  var invertedColorArray = [];
+  colorTable.forEach(function(item,i){
+    invertedColorArray.push(colorTable[i] = ~item);
   });
+  console.log(invertedColorArray.length);
   return invertedColorArray;
 };
 exports.greyscaleColor = function(colorTable){
@@ -14,7 +17,8 @@ exports.greyscaleColor = function(colorTable){
     colorPiece[2] = greyify;
     greyColorTable.push(colorPiece);
   }
-  return greyColorTable;
+  console.log('grey color table length: ',colorTable.length);
+  return colorTable;
 };
 exports.colorfy = function(colorTable){
   var colorfyColorTable = [];
