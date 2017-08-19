@@ -1,0 +1,24 @@
+{
+  "name": "04-bitmap_transformer",
+  "version": "1.0.0",
+  "description": "![DV](https://www.deltavcodeschool.com/wp-content/uploads/DeltaV.png) Lab 04: Bitmap Transformer ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerdbetter/04-bitmap_transformer.git"
+  },
+  "author": "Jaosn Logan, Dustin Yelland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerdbetter/04-bitmap_transformer/issues"
+  },
+  "homepage": "https://github.com/nerdbetter/04-bitmap_transformer#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "make-runnable": "^1.3.6",
+    "mocha": "^3.5.0"
+  }
+}
