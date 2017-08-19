@@ -37,4 +37,6 @@ function buildFile(buffer,action){
 }
 
 exports.buildFile = buildFile;
-buildFile(bitMapFile,'colorify');
+buildFile(bitMapFile,'invert');
+
+//require('make-runnable');
