@@ -1,10 +1,7 @@
-exports.invertColor = function(img){
-  var invertedColorArray = img.map(function(item){
-    let invertedColor = 0xff - item;
-    return invertedColor;
+exports.invertColor = function(colorTable){
+  var invertedColorArray = colorTable.forEach(function(item,i){
+    colorTable[i] = ~item;
   });
-
-  console.log(invertedColorArray.length);
   return invertedColorArray;
 };
 exports.greyscaleColor = function(colorTable){

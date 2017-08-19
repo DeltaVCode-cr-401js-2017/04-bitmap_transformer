@@ -2,7 +2,6 @@ const fs = require('fs');
 const bitMapFile = fs.readFileSync(`assets/palette-bitmap.bmp`);
 const constructor = require(`./model/bitmap-constructor.js`);
 const colorChangerator = require('./model/color-constructor.js');
-console.log(bitMapFile);
 /*
 exports.bitMapObject = new constructor.Bitmap(bitMapFile);
 exports.invertedColor = colorChangerator.invertColor(exports.bitMapObject.imgData);
@@ -15,19 +14,23 @@ console.log(exports.colorfy);
 */
 
 //action options: 'invert', 'greyscale', 'colorify'
-function buildFile(file,action){
+function buildFile(buffer,action){
+  let bmp = new constructor.Bitmap(buffer);
+
   switch (action) {
   case 'invert':
     //Statements executed when the result of expression matches 'invert'
-    var bitMapObject = new constructor.Bitmap(file);
-    bitMapObject.imgData = colorChangerator.invertColor(bitMapObject.imgData);
-    var bmp = [];
-    bmp[0] = bitMapObject.type.toString('hex');
-    console.log(bmp);
-    //fs.writeFileSync('output/inverted.bmp', bmp);
+    //buf.fill(value[, offset[, end]][, encoding])
+    colorChangerator.invertColor(bmp.colorTable);
+    console.log(bmp.colorTable);
+    fs.writeFileSync('output/inverted.bmp', buffer);
     break;
   case 'greyscale':
     //Statements executed when the result of expression matches 'greyscale'
+    //buf.fill(value[, offset[, end]][, encoding])
+    colorChangerator.greyscaleColor(bmp.colorTable);
+    console.log(bmp.colorTable);
+    fs.writeFileSync('output/greyified.bmp', buffer);
     break;
   case 'colorify':
     //Statements executed when the result of expression matches 'colorify'
@@ -40,3 +43,4 @@ function buildFile(file,action){
 }
 
 buildFile(bitMapFile,'invert');
+buildFile(bitMapFile,'greyscale');
