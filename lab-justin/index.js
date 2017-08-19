@@ -14,29 +14,27 @@ function buildFile(buffer,action){
   case 'invert':
     //Statements executed when the result of expression matches 'invert'
     //buf.fill(value[, offset[, end]][, encoding])
-    var change = colorChangerator.invertColor(bmp.colorTable);
-    console.log(bmp.colorTable);
+    var inverted = colorChangerator.invertColor(bmp.colorTable);
     fs.writeFileSync('output/inverted.bmp', buffer);
-    return change;
+    return inverted;
   case 'greyscale':
     //Statements executed when the result of expression matches 'greyscale'
     //buf.fill(value[, offset[, end]][, encoding])
-    var change = colorChangerator.greyscaleColor(bmp.colorTable);
-    console.log(bmp.colorTable);
+    var greyified = colorChangerator.greyscaleColor(bmp.colorTable);
     fs.writeFileSync('output/greyified.bmp', buffer);
-    return change;
+    return greyified;
   case 'colorify':
     //Statements executed when the result of expression matches 'colorify'
-    console.log('tbd');
-    break;
+    //buf.fill(value[, offset[, end]][, encoding])
+    var colorified = colorChangerator.colorfy(bmp.colorTable);
+    fs.writeFileSync('output/colorfied.bmp', buffer);
+    console.log(colorified.length);
+    return colorified;
   default:
     //Statements executed when none of the values match the value of the expression
-    console.log('Invalid input, please try again.');
     return undefined;
   }
 }
 
-exports.invertedColor = buildFile(bitMapFile,'invert');
-exports.greyscaleColor = buildFile(bitMapFile,'greyscale');
-exports.colorfy = buildFile(bitMapFile,'colorify');
-exports.breaks = buildFile(bitMapFile,'this string is not valid');
+exports.buildFile = buildFile;
+buildFile(bitMapFile,'colorify');

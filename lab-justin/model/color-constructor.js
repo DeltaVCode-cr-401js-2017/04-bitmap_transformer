@@ -24,8 +24,9 @@ exports.colorfy = function(colorTable){
   var colorfyColorTable = [];
   for ( let i = 0; i < colorTable.length; i+=4){
     var colorPiece = colorTable.slice([i], i+4);
-    colorPiece[1] = colorPiece[1] * 1.5;
+    colorPiece[1] = colorPiece[1] * 3;
     colorfyColorTable.push(colorPiece);
   }
-  return colorfyColorTable;
+  console.log(colorTable);
+  return colorTable;
 };
