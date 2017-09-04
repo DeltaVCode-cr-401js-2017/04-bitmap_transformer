@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 const sut = require('../index.js');
 const { expect } = require('chai');
 

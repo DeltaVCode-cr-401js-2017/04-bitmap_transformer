@@ -1,9 +1,9 @@
-exports.invertColor = function(img){
-  var invertedColorArray = img.map(function(item){
-    let invertedColor = 0xff - item;
-    return invertedColor;
+exports.invertColor = function(colorTable){
+  console.log(colorTable.length);
+  var invertedColorArray = [];
+  colorTable.forEach(function(item,i){
+    invertedColorArray.push(colorTable[i] = ~item);
   });
-
   console.log(invertedColorArray.length);
   return invertedColorArray;
 };
@@ -17,14 +17,16 @@ exports.greyscaleColor = function(colorTable){
     colorPiece[2] = greyify;
     greyColorTable.push(colorPiece);
   }
-  return greyColorTable;
+  console.log('grey color table length: ',colorTable.length);
+  return colorTable;
 };
 exports.colorfy = function(colorTable){
   var colorfyColorTable = [];
   for ( let i = 0; i < colorTable.length; i+=4){
     var colorPiece = colorTable.slice([i], i+4);
-    colorPiece[1] = colorPiece[1] * 1.5;
+    colorPiece[1] = colorPiece[1] * 3;
     colorfyColorTable.push(colorPiece);
   }
-  return colorfyColorTable;
+  console.log(colorTable);
+  return colorTable;
 };
